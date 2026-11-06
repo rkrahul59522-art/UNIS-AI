@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNIS AI</title>
+<style>
+body {
+  background: #101827;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+  padding: 20px;
+}
+h1 { color: #00e5bd; }
+input {
+  padding: 15px;
+  width: 85%;
+  border-radius: 25px;
+  border: none;
+}
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #00cba9;
+  color: white;
+}
+#reply {
+  margin-top: 25px;
+  font-size: 18px;
+}
+</style>
+</head>
+<body>
+<h1>UNIS AI</h1>
+<p>Your Personal AI Assistant</p>
+
+<input id="question" placeholder="Ask UNIS anything...">
+
+<br>
+<button onclick="ask()">Ask UNIS</button>
+<button onclick="speak()">🎤 Speak</button>
+
+<div id="reply">Hello! I am UNIS. How can I help you?</div>
+
+<script>
+function ask() {
+ let q = document.getElementById("question").value;
+ document.getElementById("reply").innerText =
+ "Hello! I am UNIS. You asked: " + q;
+}
+
+function speak() {
+ let text = document.getElementById("reply").innerText;
+ let msg = new SpeechSynthesisUtterance(text);
+ msg.lang = "en-IN";
+ msg.rate = 0.9;
+ speechSynthesis.speak(msg);
+}
+</script>
+</body>
+</html>
